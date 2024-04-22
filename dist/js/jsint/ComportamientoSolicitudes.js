@@ -13,10 +13,9 @@ function Ejecutar_ReportesSolicitudes(){
         }else if(region == 0){
             swal.fire({icon: 'error',title: 'Error!!',text: 'Debe elegir una region'})
         }else{
-
-          Report01(region,fecha1,fecha2); 
-          $('#report01').show();  
+          Report01(region,fecha1,fecha2);           
           Report02(region,fecha1,fecha2); 
+          $('#report01').show();  
           $('#report02').show();
         }       
     }else if(Reporte == "2"){
@@ -100,10 +99,7 @@ $("#ComboReportes").change( function() {
 });
 
 function Report01(region,fecha1,fecha2) {
-    // Invoca Al modal y no permite cerrarlo
-    $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-    $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>'); 
+ 
     var controller = "../../bd/Solicitudes/ReporteSolicitudes.php";// URL
     var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
 
@@ -118,11 +114,11 @@ function Report01(region,fecha1,fecha2) {
         responsive: true,
         autowidth: false,
         bInfo: true,        
-        "createdRow": function( row, data, dataIndex ) {
+        createdRow: function( row, data, dataIndex ) {
              if ( data.TIPOASOCIACION == "TOTAL" ) {        
                  $(row).addClass('red');    
             }
-            console.log(data.TIPOASOCIACION)
+            // console.log(data.TIPOASOCIACION)
         } ,
         buttons:[ 
                    {
@@ -276,20 +272,12 @@ function Report01(region,fecha1,fecha2) {
             }
          }              
         ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        pagingType: "simple"  
         
     }); 
 }///ok
 
-function Report02(region,fecha1,fecha2) {
-     // Invoca Al modal y no permite cerrarlo
-    $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-    $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>'); 
+function Report02(region,fecha1,fecha2) {    
     var controller = "../../bd/Solicitudes/ReporteSolicitudesResumen.php";// URL
     var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
 
@@ -301,14 +289,7 @@ function Report02(region,fecha1,fecha2) {
         bFilter: true,
         responsive: true,
         autowidth: false,
-        bInfo: true,     
-        
-        // "createdRow": function( row, data, dataIndex ) {
-        //      if ( data.TIPOASOCIACION == "TOTAL" ) {        
-        //          $(row).addClass('red');    
-        //     }
-        //     console.log(data.TIPOASOCIACION)
-        // } ,
+        bInfo: true,  
         buttons:[ 
                    {
         extend:    'excelHtml5',
@@ -357,10 +338,10 @@ function Report02(region,fecha1,fecha2) {
        className: 'btn btn-info'
                    },
                  ],
-      "language": {
-                "url": "../../plugins/Spanish.js",
+    language: {
+                url: "../../plugins/Spanish.js",
             },
-         "ajax":{
+    ajax:{
               "cache": false,
               "method":"POST",
               "data": {"region":region,"fecha1":fecha1,"fecha2":fecha2},
@@ -368,7 +349,7 @@ function Report02(region,fecha1,fecha2) {
               "dataType": "json",
               "deferRender": true,
             },
-       columns:
+    columns:
         [        
         {"data" : "NOMBREREGION"},        
         {"data" : "BANCONACION",
@@ -450,13 +431,8 @@ function Report02(region,fecha1,fecha2) {
             return tot;
             }},        
           
-        ]
-        ,pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        }, 
-        "drawCallback":function(){
+        ],
+    drawCallback:function(){
                      // alert("La tabla se está recargando"); 
                       var api = this.api();
                       $(api.column(0).footer()).html(
