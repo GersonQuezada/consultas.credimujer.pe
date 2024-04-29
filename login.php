@@ -22,7 +22,7 @@
 		$_SESSION["s_usuario"] = $name;
 		$_SESSION["login"] = $user;
 		$_SESSION["grupo"] = $grupo;		
-		$_SESSION["Version_cod"] = '42';
+		$_SESSION["Version_cod"] = '2';
 	  }else{
 		$row = [];
 		print json_encode($row);

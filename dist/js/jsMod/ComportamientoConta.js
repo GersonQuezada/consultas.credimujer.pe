@@ -18,8 +18,8 @@ function RevertirProcesoBCP(){
           Swal.fire({type: 'error',title: 'Error!!',text: 'Debe ingresar una fecha'})
         }else{         
           // revierte proceso
-           Listar(fecha,CODREGION);
-           $.ajax({
+          Listar(fecha,CODREGION);
+          $.ajax({
               type:"POST",
               url:"../../bd/Entidadfinanciera/RevertirProcesoBCP.php",
               data:{CODREGION:CODREGION,fecha:fecha}, 
@@ -201,46 +201,46 @@ function Listar(fecha,CODREGION){
                   return boton;     
                   }
                 },
-                {"data" : "REGION"},
-                {"data" : "CODASOCIACION"},
-               {"data" : "DESASOCIACION"},
-               {"data" : "NUMCREDITO"},
-               {"data" : "PRODUCTO"},
-               {"data" : "CODSOCIA"},
-               {"data" : "APELLIDOSNOMBRES"},
-               {"data" : "NRODNI"},
-               {"data" : "NROCTAAHORROSOCIA"},
-               {"data" : "NROCTACARGO"}, 
-               {"data" : "MTODESEMBOLSADO",
-                  render: function ( data, type, row) {
-                  let to = (row.MTODESEMBOLSADO).split('.'); 
-                  let tot = 0;
-                  if(to[0] == ""){
-                  tot = 0+row.MTODESEMBOLSADO; 
-                  }else{
-                  tot = row.MTODESEMBOLSADO;
-                  }
-                  return tot;
-                  }
-                }, 
-               {"data" : "MTOADICIONAL",
-                  render: function ( data, type, row) {
-                  let to = (row.MTOADICIONAL).split('.'); 
-                  let tot = 0;
-                  if(to[0] == ""){
-                  tot = 0+row.MTOADICIONAL; 
-                  }else{
-                  tot = row.MTOADICIONAL;
-                  }
-                  return tot;
-                  }
-                },
-               {"data" : "FECHAPROCESO"},
-               {"data" : "FECHADESEMBOLSO"},
-               {"data" : "FECHAPROCESOBCP"},
-               {"data" : "TIPOCOBRO"},
-               {"data" : "CARGATABLA"},
-               {"data" : "FLAGINSERT"},
+                {"data" : "REGION", searchable: false },
+                {"data" : "CODASOCIACION" , searchable: false },
+                {"data" : "DESASOCIACION", searchable: false },
+                {"data" : "NUMCREDITO", searchable: false },
+                {"data" : "PRODUCTO", searchable: false },
+                {"data" : "CODSOCIA", searchable: false },
+                {"data" : "APELLIDOSNOMBRES", searchable: false },
+                {"data" : "NRODNI", searchable: false },
+                {"data" : "NROCTAAHORROSOCIA", searchable: false },
+                {"data" : "NROCTACARGO", searchable: false }, 
+                {"data" : "MTODESEMBOLSADO",
+                    render: function ( data, type, row) {
+                    let to = (row.MTODESEMBOLSADO).split('.'); 
+                    let tot = 0;
+                    if(to[0] == ""){
+                    tot = 0+row.MTODESEMBOLSADO; 
+                    }else{
+                    tot = row.MTODESEMBOLSADO;
+                    }
+                    return tot;
+                    }
+                  }, 
+                {"data" : "MTOADICIONAL",
+                    render: function ( data, type, row) {
+                    let to = (row.MTOADICIONAL).split('.'); 
+                    let tot = 0;
+                    if(to[0] == ""){
+                    tot = 0+row.MTOADICIONAL; 
+                    }else{
+                    tot = row.MTOADICIONAL;
+                    }
+                    return tot;
+                    }
+                  },
+                {"data" : "FECHAPROCESO", searchable: false },
+                {"data" : "FECHADESEMBOLSO", searchable: false },
+                {"data" : "FECHAPROCESOBCP", searchable: false },
+                {"data" : "TIPOCOBRO", searchable: true },
+                {"data" : "CARGATABLA", searchable: false },
+                {"data" : "FLAGINSERT", searchable: false },
 
                 ],
                pagingType: "simple" 

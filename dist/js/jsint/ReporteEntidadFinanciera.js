@@ -400,7 +400,7 @@ $(document).on("click", "#Btn_Ejecutar_ReportesRiesgo", function (e){
             }else{
                 // var post = { fecha: fecha, region: cbx}
                 Report02(fecha1,fecha2,region);
-                agregarTR(); 
+                // agregarTR(); 
                  $('#report02').show();   
               }
 
@@ -711,7 +711,7 @@ function Report02(fechaInicio,fechafinal,region) {
                         {"data" : "TIPOCOBRO"},  
        
         ],
-               pagingType: "simple",
+        pagingType: "simple",
         //Finaiza la carga del Ajax
         initComplete :function(settings, json){
           $("#modal-default-1").modal("hide");
