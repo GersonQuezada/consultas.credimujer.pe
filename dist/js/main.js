@@ -66,7 +66,8 @@
 	  REPORTESENTIDADESFINANCIERAS.style.display = 'block'; 
 	  REPORTESINDICADORES.style.display = 'block';
 	  MODULOORDEN.style.display = 'block';
-  }else   if(grupo == 'DI'){	  
+  }else   if(grupo == 'DI'){	
+	MODULOSCREDIMUJERCONTABILIDAD.style.display = 'block';	  
 	  REPORTESOPERACIONES.style.display = 'block';	   
 	  REPORTESENTIDADESFINANCIERAS.style.display = 'block';
 	  REPORTESCONTRATOS.style.display = 'block';

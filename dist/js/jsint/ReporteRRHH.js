@@ -98,10 +98,10 @@ $(document).on("click", "#Btn_Ejecutar_ReportesRRHH", function (e){
 
 
 function Report01(fecha1,region1) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/RRHH/ReportRRHH_01.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report01").DataTable({
@@ -110,6 +110,7 @@ function Report01(fecha1,region1) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -173,19 +174,19 @@ function Report01(fecha1,region1) {
         {"data" : "dias_venc"},
         {"data" : "ahorros"}     
         ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }
 
 function Report02(fecha,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/RRHH/ReportRRHH_02.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report02")
@@ -195,6 +196,7 @@ function Report02(fecha,region) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -388,19 +390,19 @@ function Report02(fecha,region) {
             }
           },       
         ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        }  
+        pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // }  
       });
 }
 
 function Report03(fecha,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/RRHH/ReportRRHH_03.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report03")
@@ -410,6 +412,7 @@ function Report03(fecha,region) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -553,10 +556,10 @@ function Report03(fecha,region) {
 		{"data" : "riesgo_ag"}, 
 		{"data" : "riesgo_tot"},       
         ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }

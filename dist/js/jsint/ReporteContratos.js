@@ -73,10 +73,10 @@ $(document).on("click", "#Btn_Ejecutar_ReportesContratos", function (e){
 
 
 function Report01(fechaInicio,fechafinal,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Contratos/ReportContratos_01.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text(); 
   var table = $("#report01").DataTable({
@@ -85,6 +85,7 @@ function Report01(fechaInicio,fechafinal,region) {
         bLengthChange: false,
         destroy: true,        
         responsive: true,
+        processing: true,
         autowidth: false,
         bFilter: true,
         bInfo: true,buttons:[ 
@@ -174,10 +175,10 @@ function Report01(fechaInicio,fechafinal,region) {
 }///// ok
 
 function Report02(region,fechafinal,fechaInicio) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Contratos/ReportContratos_02.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text(); 
   var table = $("#report02")
@@ -186,7 +187,8 @@ function Report02(region,fechafinal,fechaInicio) {
         paging:true,
         bLengthChange: false,
         destroy: true,
-        bFilter: true,  
+        bFilter: true, 
+        processing: true, 
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -293,11 +295,8 @@ function Report02(region,fechafinal,fechaInicio) {
                           {"data" : "NOMPROMOTORA"},
                           {"data" : "NUMCREDITO14"},
         ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        pagingType: "simple"
+ 
       });
 }
 

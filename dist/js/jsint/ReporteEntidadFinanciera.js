@@ -521,10 +521,10 @@ $(document).on("click", "#Btn_Ejecutar_ReportesRiesgo", function (e){
 
 
 function Report01() {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_01.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report01").DataTable({
@@ -533,6 +533,7 @@ function Report01() {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -595,10 +596,10 @@ function Report01() {
                           {"data" : "TIPOREG"},   
         ],
         pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }//ok
 
@@ -634,10 +635,10 @@ function SacarSociaBD(string){
 }
 
 function Report02(fechaInicio,fechafinal,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_02.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report02")
@@ -647,6 +648,7 @@ function Report02(fechaInicio,fechafinal,region) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -711,11 +713,11 @@ function Report02(fechaInicio,fechafinal,region) {
                         {"data" : "TIPOCOBRO"},  
        
         ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 
  // let html = '<tr>'+
@@ -724,10 +726,10 @@ function Report02(fechaInicio,fechafinal,region) {
 }//ok
 
 function Report03(fechaInicio,fechafinal,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_03.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report03")
@@ -738,6 +740,7 @@ function Report03(fechaInicio,fechafinal,region) {
         destroy: true,
         bFilter: true,
         responsive: true,
+        processing: true,
         autowidth: false,
         bInfo: true,buttons:[ 
                    {
@@ -801,19 +804,19 @@ function Report03(fechaInicio,fechafinal,region) {
                         {"data" : "TIPOCOBRO"}, 
        
         ],
-               pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+               pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 } // ok
 
 function Report04(fechaInicio,fechafinal,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_04.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report04")
@@ -886,19 +889,19 @@ function Report04(fechaInicio,fechafinal,region) {
         {"data" : "TIPOCOBRO"}, 
                
         ],
-               pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+               pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 } ///ok
 
 function Report05(fechaInicio,fechafinal,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_05.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report05").DataTable({
@@ -908,6 +911,7 @@ function Report05(fechaInicio,fechafinal,region) {
         destroy: true,
         bFilter: true,
         responsive: true,
+        processing: true,
         autowidth: false,
         bInfo: true,buttons:[ 
                    {
@@ -969,19 +973,19 @@ function Report05(fechaInicio,fechafinal,region) {
         {"data" : "FECHAVENCIMIENTO"},  
         {"data" : "TIPOCOBRO"}, 
         ],
-               pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+               pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }//ok
 
 function Report06(fechaInicio,fechafinal) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_06.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report06").DataTable({
@@ -990,6 +994,7 @@ function Report06(fechaInicio,fechafinal) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -1046,10 +1051,10 @@ function Report06(fechaInicio,fechafinal) {
         } 
         ],
                pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } , 
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } , 
                // "drawCallback":function(){
                //  // alert("la tabla se esta recargando");
                //        var api = this.api();
@@ -1061,10 +1066,10 @@ function Report06(fechaInicio,fechafinal) {
 }//ok
 
 function Report07(fechaInicio,fechafinal,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_07.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report07").DataTable({
@@ -1073,6 +1078,7 @@ function Report07(fechaInicio,fechafinal,region) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -1134,19 +1140,19 @@ function Report07(fechaInicio,fechafinal,region) {
                           {"data" : "DESCRIPCIONCUENTA_BCP"},     
   
         ],
-               pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+               pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }//ok
 
 function Report08(fechaInicio,fechafinal,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_08.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report08").DataTable({
@@ -1156,6 +1162,7 @@ function Report08(fechaInicio,fechafinal,region) {
         destroy: true,
         bFilter: true,
         responsive: true,
+        processing: true,
         autowidth: false,
         bInfo: true,buttons:[ 
                    {
@@ -1215,19 +1222,19 @@ function Report08(fechaInicio,fechafinal,region) {
                           {"data" : "TIPOCOBRO"}    
   
         ],
-               pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+               pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }//ok
 
 function Report09(fechaInicio,fechafinal,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_09.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report09").DataTable({
@@ -1236,6 +1243,7 @@ function Report09(fechaInicio,fechafinal,region) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -1312,19 +1320,19 @@ function Report09(fechaInicio,fechafinal,region) {
 
                           
         ],
-               pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+               pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }//ok
 
 function Report10(fechaInicio,fechafinal,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_10.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report10").DataTable({
@@ -1333,6 +1341,7 @@ function Report10(fechaInicio,fechafinal,region) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -1379,19 +1388,19 @@ function Report10(fechaInicio,fechafinal,region) {
  
                           
         ],
-               pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+               pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }//ok
 
 function Report11(fechaInicio,fechafinal,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_11.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report11").DataTable({
@@ -1400,6 +1409,7 @@ function Report11(fechaInicio,fechafinal,region) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -1462,19 +1472,19 @@ function Report11(fechaInicio,fechafinal,region) {
 
                           
         ],
-               pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+               pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }//ok
 
 function Report12(fechaInicio,fechafinal,region) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller  = "../../bd/Entidadfinanciera/ReportEntidadFinanciera_12.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report12").DataTable({
@@ -1483,6 +1493,7 @@ function Report12(fechaInicio,fechafinal,region) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -1545,10 +1556,10 @@ function Report12(fechaInicio,fechafinal,region) {
 
                           
         ],
-               pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+               pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }//ok

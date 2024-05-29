@@ -722,10 +722,10 @@ $(document).on("click", "#Btn_Ejecutar_Migra", function (e){
 });
 
 function Report_Cartera_Activa_semanal(fecha1) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Operaciones/reportOpera.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#example")
@@ -736,6 +736,7 @@ function Report_Cartera_Activa_semanal(fecha1) {
         responsive: true,
         autowidth: false,
         destroy: true,
+        processing: true,
         bFilter: true,
         bInfo: true,buttons:[ 
                    {
@@ -921,20 +922,20 @@ function Report_Cartera_Activa_semanal(fecha1) {
             }
           }       
         ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        }
+        pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // }
 
       });
 }//ok
 
 function Report_Recuperaciones(fecha1,fecha2) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Operaciones/reportRecu.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#example")
@@ -945,6 +946,7 @@ function Report_Recuperaciones(fecha1,fecha2) {
         responsive:true,
         autowidth:true,
         destroy: true,
+        processing: true,
         bFilter: true,
         bInfo: true,buttons:[ 
                    {
@@ -1084,11 +1086,11 @@ function Report_Recuperaciones(fecha1,fecha2) {
             }
           },      
         ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }//ok
 

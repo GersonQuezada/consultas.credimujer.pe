@@ -155,10 +155,10 @@ $(document).on("click", "#Btn_Ejecutar_ReportesIndicadores", function (e){
 
 
 function Report01(fecha1) {
-   // Invoca Al modal y no permite cerrarlo
-   $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-   $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');
+  //  // Invoca Al modal y no permite cerrarlo
+  //  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  //   //Agrega la imagen de carga
+  //  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');
   var controller = "../../bd/Indicadores/ReportIndiGeneral02_01.php";// URL
   var name_xlsx = $('select[name="tipoindicadores"] option:selected').text(); 
   var table = $('#report01-table').DataTable({
@@ -167,6 +167,7 @@ function Report01(fecha1) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         bInfo: true,buttons:[ 
                    {
         extend:    'excelHtml5',
@@ -223,19 +224,19 @@ function Report01(fecha1) {
             }
          }      
         ],
-               pagingType: "simple",
-               //Finaiza la carga del Ajax
-               initComplete :function(settings, json){
-                  $("#modal-default-1").modal("hide");
-               }  
+               pagingType: "simple"
+              //  //Finaiza la carga del Ajax
+              //  initComplete :function(settings, json){
+              //     $("#modal-default-1").modal("hide");
+              //  }  
       });
 }
 
 function Report02(fecha1) {
-   // Invoca Al modal y no permite cerrarlo
-   $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-   $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  //  // Invoca Al modal y no permite cerrarlo
+  //  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  //   //Agrega la imagen de carga
+  //  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Indicadores/ReportIndiGeneral02_02.php";// URL
   var name_xlsx = $('select[name="tipoindicadores"] option:selected').text(); 
   var table = $('#report02-table').DataTable({
@@ -243,6 +244,7 @@ function Report02(fecha1) {
         paging:true,
         bLengthChange: false,
         destroy: true,
+        processing: true,
         bFilter: true,
         bInfo: true,buttons:[ 
                    {
@@ -284,19 +286,19 @@ function Report02(fecha1) {
         {"data" : "TIPOPRODUCTO"},
         {"data" : "NRO_ASOCIACIONES"}       
         ],
-               pagingType: "simple",
-               //Finaiza la carga del Ajax
-               initComplete :function(settings, json){
-                  $("#modal-default-1").modal("hide");
-               }  
+               pagingType: "simple"
+              //  //Finaiza la carga del Ajax
+              //  initComplete :function(settings, json){
+              //     $("#modal-default-1").modal("hide");
+              //  }  
       });
 }
  
 function Report03(fecha1,fecha2,region1) {
-   // Invoca Al modal y no permite cerrarlo
-   $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-   $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  //  // Invoca Al modal y no permite cerrarlo
+  //  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  //   //Agrega la imagen de carga
+  //  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Indicadores/ReportIndiGeneral02_03.php";// URL
   var name_xlsx = $('select[name="tipoindicadores"] option:selected').text(); 
   var table = $('#report03-table').DataTable({
@@ -305,6 +307,7 @@ function Report03(fecha1,fecha2,region1) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         bInfo: true,buttons:[ 
                    {
         extend:    'excelHtml5',
@@ -372,19 +375,19 @@ function Report03(fecha1,fecha2,region1) {
         {"data" : "FECHAINICIO"},
         {"data" : "FECHAFINAL"},
         ],
-               pagingType: "simple",
-               //Finaiza la carga del Ajax
-               initComplete :function(settings, json){
-                  $("#modal-default-1").modal("hide");
-               }  
+               pagingType: "simple"
+              //  //Finaiza la carga del Ajax
+              //  initComplete :function(settings, json){
+              //     $("#modal-default-1").modal("hide");
+              //  }  
       });
 }
 
 function Report04(fecha1) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Indicadores/ReportIndiGeneral02_04.php";// URL
   var name_xlsx = $('select[name="tipoindicadores"] option:selected').text(); 
   var table = $('#report04-table').DataTable({
@@ -393,6 +396,7 @@ function Report04(fecha1) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         bInfo: true,buttons:[ 
                    {
         extend:    'excelHtml5',
@@ -434,19 +438,19 @@ function Report04(fecha1) {
         {"data" : "ESTADO_DE_ASOC"},
         {"data" : "NRO_ASOC"}       
         ],
-               pagingType: "simple",
-               //Finaiza la carga del Ajax
-               initComplete :function(settings, json){
-                  $("#modal-default-1").modal("hide");
-               }  
+               pagingType: "simple"
+              //  //Finaiza la carga del Ajax
+              //  initComplete :function(settings, json){
+              //     $("#modal-default-1").modal("hide");
+              //  }  
       });
 }
 
 function Report05(fecha1,fecha2,region1){
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Indicadores/ReportIndiGeneral02_05.php";// URL
   var name_xlsx = $('select[name="tipoindicadores"] option:selected').text(); 
   var table = $('#report05-table').DataTable({
@@ -454,6 +458,7 @@ function Report05(fecha1,fecha2,region1){
         paging:true,
         bLengthChange: false,
         destroy: true,
+        processing: true,
         bFilter: true,
         bInfo: true,buttons:[ 
                    {
@@ -499,19 +504,19 @@ function Report05(fecha1,fecha2,region1){
         {"data" : "FECHAINICIO"},
         {"data" : "FECHAFINAL"} 
         ],
-               pagingType: "simple",
-               //Finaiza la carga del Ajax
-               initComplete :function(settings, json){
-                  $("#modal-default-1").modal("hide");
-               }  
+               pagingType: "simple"
+              //  //Finaiza la carga del Ajax
+              //  initComplete :function(settings, json){
+              //     $("#modal-default-1").modal("hide");
+              //  }  
       });
 }
 
 function Report06(){
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>'); 
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>'); 
   var controller = "../../bd/Indicadores/ReportIndiGeneral02_06.php";// URL
   var name_xlsx = $('select[name="tipoindicadores"] option:selected').text(); 
   var table = $('#report06-table').DataTable({
@@ -519,6 +524,7 @@ function Report06(){
         paging:true,
         bLengthChange: false,
         destroy: true,
+        processing: true,
         bFilter: true,
         bInfo: true,buttons:[ 
                    {
@@ -563,10 +569,10 @@ function Report06(){
         {"data" : "FECHAULTDESEMBOLSO"},
         {"data" : "FECHASALIDA"}       
         ],
-               pagingType: "simple",
-               //Finaiza la carga del Ajax
-               initComplete :function(settings, json){
-                  $("#modal-default-1").modal("hide");
-               }  
+               pagingType: "simple"
+              //  //Finaiza la carga del Ajax
+              //  initComplete :function(settings, json){
+              //     $("#modal-default-1").modal("hide");
+              //  }  
       });
 }

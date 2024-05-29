@@ -110,7 +110,8 @@ function Report01(region,fecha1,fecha2) {
         order: [[ 1, "asc" ]],
         bLengthChange: false,
         destroy: true,
-        bFilter: true,
+        bFilter: true,        
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,        
@@ -287,7 +288,8 @@ function Report02(region,fecha1,fecha2) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
-        responsive: true,
+        responsive: true,        
+        processing: true,
         autowidth: false,
         bInfo: true,  
         buttons:[ 
@@ -465,10 +467,10 @@ function Report02(region,fecha1,fecha2) {
 }///ok
 
 function Report03(fechaInicio1,fechafin1,region,fecha) {
-     // Invoca Al modal y no permite cerrarlo
-    $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-    $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>'); 
+    //  // Invoca Al modal y no permite cerrarlo
+    // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+    // //Agrega la imagen de carga
+    // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>'); 
     var controller = "../../bd/Solicitudes/ReporteSolicitudesEjecutadoSolicitado.php";// URL
     var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
 
@@ -481,6 +483,7 @@ function Report03(fechaInicio1,fechafin1,region,fecha) {
         bFilter: true,
         responsive: true,
         autowidth: false,
+        processing: true,
         bInfo: true,     
         pageLength: 5, 
         buttons:[ 
@@ -694,19 +697,19 @@ function Report03(fechaInicio1,fechafin1,region,fecha) {
             }
             return tot;
             }} 
-        ],pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        ],pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
     }); 
 }///ok
 
 function Report04(fechaInicio1,fechafin1,fechaInicio2,fechafin2,region) {
-     // Invoca Al modal y no permite cerrarlo
-    $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-    $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>'); 
+    //  // Invoca Al modal y no permite cerrarlo
+    // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+    // //Agrega la imagen de carga
+    // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>'); 
     var controller = "../../bd/Solicitudes/ReporteSolicitudesEjecutadoSolicitadoCont.php";// URL
     var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
 
@@ -718,6 +721,7 @@ function Report04(fechaInicio1,fechafin1,fechaInicio2,fechafin2,region) {
         bFilter: true, 
         responsive: true,
         autowidth: false,
+        processing: true,
         bInfo: true,      
         pageLength: 5,   
         buttons:[ 
@@ -931,11 +935,11 @@ function Report04(fechaInicio1,fechafin1,fechaInicio2,fechafin2,region) {
             }
             return tot;
             }} 
-        ],pagingType: "simple",
+        ],pagingType: "simple"
         //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
     }); 
 }///ok
 

@@ -97,10 +97,10 @@ $(document).on("click", "#Btn_Ejecutar_ReporteConta_Migrado", function (e){
 
 
 function Report_Recu_vs_Boletas(fecha1,fecha2) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Contabilidad/report1.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#Reporte01_tabla")
@@ -109,7 +109,8 @@ function Report_Recu_vs_Boletas(fecha1,fecha2) {
         paging:true,
         bLengthChange: false,
         destroy: true,
-        bFilter: true,        
+        bFilter: true,  
+        processing: true,      
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -298,19 +299,19 @@ function Report_Recu_vs_Boletas(fecha1,fecha2) {
               }
     
             ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }
 
 function Report_Boletas_noRecuperaciones(fecha1,fecha2,nrocre) {
-   // Invoca Al modal y no permite cerrarlo
-   $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-   $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  //  // Invoca Al modal y no permite cerrarlo
+  //  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  //   //Agrega la imagen de carga
+  //  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Contabilidad/report2.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#Reporte02_tabla")
@@ -320,6 +321,7 @@ function Report_Boletas_noRecuperaciones(fecha1,fecha2,nrocre) {
         bLengthChange: false,
         destroy: true,
         responsive: true,
+        processing: true,
         autowidth: false,
         bFilter: true,
         bInfo: true,buttons:[ 
@@ -421,19 +423,19 @@ function Report_Boletas_noRecuperaciones(fecha1,fecha2,nrocre) {
               },
               {"data" : "TIPO_PAGO"},
               {"data" : "FECHA_VENCIMIENTO_CRONOGRAMA"},        ],
-               pagingType: "simple",
-              //Finaiza la carga del Ajax
-              initComplete :function(settings, json){
-                  $("#modal-default-1").modal("hide");
-              } 
+               pagingType: "simple"
+              // //Finaiza la carga del Ajax
+              // initComplete :function(settings, json){
+              //     $("#modal-default-1").modal("hide");
+              // } 
       });
 }
 
 function Report_Recuperaciones_noBoletas(fecha1,fecha2,nrocre) {
-   // Invoca Al modal y no permite cerrarlo
-   $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-   $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  //  // Invoca Al modal y no permite cerrarlo
+  //  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  //   //Agrega la imagen de carga
+  //  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Contabilidad/report3.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
    
@@ -444,6 +446,7 @@ function Report_Recuperaciones_noBoletas(fecha1,fecha2,nrocre) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -545,18 +548,18 @@ function Report_Recuperaciones_noBoletas(fecha1,fecha2,nrocre) {
               },           
               {"data" : "NRO_CUOTA"},      
             ],
-               pagingType: "simple",
-               initComplete :function(settings, json){
-                $("#modal-default-1").modal("hide");
-             }  
+               pagingType: "simple"
+            //    initComplete :function(settings, json){
+            //     $("#modal-default-1").modal("hide");
+            //  }  
       });
 }
 
 function Report_Recu_Total(fecha1,fecha2){
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Contabilidad/reportRecupTotal.php";// URL
   var name_xlsx = 'Recuperaciones_total_contabilidad';  
       var table = $("#Reporte01-tabla")
@@ -566,6 +569,7 @@ function Report_Recu_Total(fecha1,fecha2){
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -703,18 +707,18 @@ function Report_Recu_Total(fecha1,fecha2){
                 {"data" : "NRO_CUOTA"},       
                 {"data" : "TIP_ORIG_PAG"}
             ],
-               pagingType: "simple",
-               initComplete :function(settings, json){
-                $("#modal-default-1").modal("hide");
-             }   
+               pagingType: "simple"
+            //    initComplete :function(settings, json){
+            //     $("#modal-default-1").modal("hide");
+            //  }   
       });
 }
 
 function Report_Migrado_01(fechaInicio,fechafinal,TipoCambio) {
-   // Invoca Al modal y no permite cerrarlo
-   $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-   $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  //  // Invoca Al modal y no permite cerrarlo
+  //  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  //   //Agrega la imagen de carga
+  //  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Contabilidad/ReportContabilidadMigrado_01.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text(); 
   var table = $("#report01_tabla").DataTable({
@@ -723,6 +727,7 @@ function Report_Migrado_01(fechaInicio,fechafinal,TipoCambio) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -1069,19 +1074,19 @@ function Report_Migrado_01(fechaInicio,fechafinal,TipoCambio) {
                           {"data" : "TIPOCAM"}
      
         ],
-               pagingType: "simple" ,
-               //Finaiza la carga del Ajax
-               initComplete :function(settings, json){
-                  $("#modal-default-1").modal("hide");
-               } 
+               pagingType: "simple" 
+              //  //Finaiza la carga del Ajax
+              //  initComplete :function(settings, json){
+              //     $("#modal-default-1").modal("hide");
+              //  } 
       });
 }///// ok
 
 function Report_Migrado_02(fecha,region) {
-   // Invoca Al modal y no permite cerrarlo
-   $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-   $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  //  // Invoca Al modal y no permite cerrarlo
+  //  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  //   //Agrega la imagen de carga
+  //  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Contabilidad/ReportContabilidadMigrado_02.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text(); 
   var table = $("#report02_tabla").DataTable({
@@ -1092,6 +1097,7 @@ function Report_Migrado_02(fecha,region) {
         responsive: true,
         autowidth: false,
         bFilter: true,
+        processing: true,
         bInfo: true,buttons:[ 
                    {
         extend:    'excelHtml5',
@@ -1269,19 +1275,19 @@ function Report_Migrado_02(fecha,region) {
                   {"data" : "TIPOPRODU"},
                   {"data" : "CODMONEDA"},    
         ],
-               pagingType: "simple" ,
-               //Finaiza la carga del Ajax
-               initComplete :function(settings, json){
-                  $("#modal-default-1").modal("hide");
-               } 
+               pagingType: "simple" 
+              //  //Finaiza la carga del Ajax
+              //  initComplete :function(settings, json){
+              //     $("#modal-default-1").modal("hide");
+              //  } 
       });
 }///// ok
 
 function Report_Migrado_03(fechaInicio,fechafinal,region) {
-   // Invoca Al modal y no permite cerrarlo
-   $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-   $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  //  // Invoca Al modal y no permite cerrarlo
+  //  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  //   //Agrega la imagen de carga
+  //  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Contabilidad/ReportContabilidadMigrado_03.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text(); 
   var table = $("#report03_tabla").DataTable({
@@ -1290,6 +1296,7 @@ function Report_Migrado_03(fechaInicio,fechafinal,region) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -1388,19 +1395,19 @@ function Report_Migrado_03(fechaInicio,fechafinal,region) {
            {"data" : "NOMPROMOTORA"},
            {"data" : "ENTIDADFINAN"},    
         ],
-               pagingType: "simple",
-               //Finaiza la carga del Ajax
-               initComplete :function(settings, json){
-                  $("#modal-default-1").modal("hide");
-               }  
+               pagingType: "simple"
+              //  //Finaiza la carga del Ajax
+              //  initComplete :function(settings, json){
+              //     $("#modal-default-1").modal("hide");
+              //  }  
       });
 }///// ok
 
 function Report_Migrado_04(fechaInicio,fechafinal) {
-   // Invoca Al modal y no permite cerrarlo
-   $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-    //Agrega la imagen de carga
-   $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  //  // Invoca Al modal y no permite cerrarlo
+  //  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  //   //Agrega la imagen de carga
+  //  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Contabilidad/ReportContabilidadMigrado_04.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text(); 
   var table = $("#report04_tabla").DataTable({
@@ -1410,6 +1417,7 @@ function Report_Migrado_04(fechaInicio,fechafinal) {
         destroy: true,
         bFilter: true,
         responsive: true,
+        processing: true,
         autowidth: false,
         bInfo: true,buttons:[ 
                    {
@@ -1512,11 +1520,11 @@ function Report_Migrado_04(fechaInicio,fechafinal) {
                            {"data" : "NOMPROMOTORA"},  
                            {"data" : "ENTIDADFINAN"},     
         ],
-               pagingType: "simple",
-               //Finaiza la carga del Ajax
-               initComplete :function(settings, json){
-                  $("#modal-default-1").modal("hide");
-               }  
+               pagingType: "simple"
+              //  //Finaiza la carga del Ajax
+              //  initComplete :function(settings, json){
+              //     $("#modal-default-1").modal("hide");
+              //  }  
       });
 }///// ok
 
@@ -1524,26 +1532,48 @@ $(document).ready(Cargar());
 
 $("#ComboBox").change( function() {
         if ($(this).val() === "1") {
-            $("#NroCredito").prop("disabled", true);
-            document.getElementById("NroCredito").value = "";
-            // $('#Reporte01_contenido').show();
-            document.getElementById("Reporte01_contenido").style.display = "block";
-            document.getElementById("Reporte02_contenido").style.display = "none";
-            document.getElementById("Reporte03_contenido").style.display = "none";
+          $("#NroCredito").prop("disabled", true);
+          document.getElementById("NroCredito").value = "";
+          // $('#Reporte01_contenido').show();
+          document.getElementById("Reporte01_contenido").style.display = "block";
+          document.getElementById("Reporte02_contenido").style.display = "none";
+          document.getElementById("Reporte03_contenido").style.display = "none";
+          document.getElementById("Reporte04_contenido").style.display = "none";
+          document.getElementById("Reporte05_contenido").style.display = "none";
         } else if ($(this).val() === "2") {
-            $("#NroCredito").prop("disabled", false);
-            document.getElementById("Reporte01_contenido").style.display = "none";
-            document.getElementById("Reporte02_contenido").style.display = "block";
-            document.getElementById("Reporte03_contenido").style.display = "none";     
+          $("#NroCredito").prop("disabled", false);
+          document.getElementById("Reporte01_contenido").style.display = "none";
+          document.getElementById("Reporte02_contenido").style.display = "block";
+          document.getElementById("Reporte03_contenido").style.display = "none";
+          document.getElementById("Reporte04_contenido").style.display = "none";
+          document.getElementById("Reporte05_contenido").style.display = "none";     
         }else if($(this).val() === "3"){
           $("#NroCredito").prop("disabled", false);
           document.getElementById("Reporte01_contenido").style.display = "none";
           document.getElementById("Reporte02_contenido").style.display = "none";
           document.getElementById("Reporte03_contenido").style.display = "block";
+          document.getElementById("Reporte04_contenido").style.display = "none";
+          document.getElementById("Reporte05_contenido").style.display = "none";
+        }else if($(this).val() === "4"){
+          $("#NroCredito").prop("disabled", true);
+          document.getElementById("Reporte01_contenido").style.display = "none";
+          document.getElementById("Reporte02_contenido").style.display = "none";
+          document.getElementById("Reporte03_contenido").style.display = "none";
+          document.getElementById("Reporte04_contenido").style.display = "block";
+          document.getElementById("Reporte05_contenido").style.display = "none";
+        }else if($(this).val() === "5"){
+          $("#NroCredito").prop("disabled", true);
+          document.getElementById("Reporte01_contenido").style.display = "none";
+          document.getElementById("Reporte02_contenido").style.display = "none";
+          document.getElementById("Reporte03_contenido").style.display = "none";
+          document.getElementById("Reporte04_contenido").style.display = "none";
+          document.getElementById("Reporte05_contenido").style.display = "block";
         }else{
           document.getElementById("Reporte01_contenido").style.display = "none";
-            document.getElementById("Reporte02_contenido").style.display = "none";
-            document.getElementById("Reporte03_contenido").style.display = "none";
+          document.getElementById("Reporte02_contenido").style.display = "none";
+          document.getElementById("Reporte03_contenido").style.display = "none";
+          document.getElementById("Reporte04_contenido").style.display = "none";
+          document.getElementById("Reporte05_contenido").style.display = "none";     
         }
     });
 

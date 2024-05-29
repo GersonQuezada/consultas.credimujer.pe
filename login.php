@@ -21,8 +21,8 @@
 		// $region = $row['codregion'];
 		$_SESSION["s_usuario"] = $name;
 		$_SESSION["login"] = $user;
-		$_SESSION["grupo"] = $grupo;		
-		$_SESSION["Version_cod"] = '2';
+		$_SESSION["grupo"] = $grupo;	
+		 
 	  }else{
 		$row = [];
 		print json_encode($row);

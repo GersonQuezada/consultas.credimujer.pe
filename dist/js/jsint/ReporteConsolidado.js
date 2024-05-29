@@ -11,6 +11,7 @@ function Report(fecha1) {
         paging:true,
         bLengthChange: false,
         destroy: true,
+        processing: true,
         bFilter: true,
         bInfo: true,buttons:[ 
                    {

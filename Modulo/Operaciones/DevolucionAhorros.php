@@ -749,7 +749,7 @@ if($_SESSION["s_usuario"] === null){
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- <script src="../../dist/js/main.js"></script> -->
-<script src="../../dist/js/jsMod/ComportamientoOpera.js?v="<?php echo $_SESSION["Version_cod"]; ?>></script>
+<script src="../../dist/js/jsMod/ComportamientoOpera.js"></script>
     <!-- datatables JS -->
 <script type="text/javascript" src="../../plugins/datatables/datatables.min.js"></script>  
     <!-- para usar botones en datatables JS -->  

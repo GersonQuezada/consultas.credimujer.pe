@@ -73,10 +73,10 @@ $(document).on("click", "#Btn_Ejecutar_ReportesSinfoned", function (e){
 
 
 function Report01(fecha1,fecha2,tipocambio) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Sinfoned/ReportSinfoned_01.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report01-tabla").DataTable({
@@ -85,6 +85,7 @@ function Report01(fecha1,fecha2,tipocambio) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         responsive: true,
         autowidth: false,
         bInfo: true,buttons:[ 
@@ -257,19 +258,19 @@ function Report01(fecha1,fecha2,tipocambio) {
             }
           }            
         ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 }///ok
 
 function Report02(fecha1,fecha2) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Sinfoned/ReportSinfoned_02.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report02-tabla")
@@ -279,6 +280,7 @@ function Report02(fecha1,fecha2) {
         bLengthChange: false,
         destroy: true,
         bFilter: true,
+        processing: true,
         bInfo: true,buttons:[ 
                    {
         extend:    'excelHtml5',
@@ -362,19 +364,19 @@ function Report02(fecha1,fecha2) {
             }
           }       
         ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        }  
+        pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // }  
       });
 }
 
 function Report03(fecha1,fecha2) {
-  // Invoca Al modal y no permite cerrarlo
-  $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
-  //Agrega la imagen de carga
-  $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
+  // // Invoca Al modal y no permite cerrarlo
+  // $("#modal-default-1").modal({backdrop: 'static', keyboard: false});   
+  // //Agrega la imagen de carga
+  // $('#content').html('<div class="loading"><img src="../../build/loading/images/loader.gif" alt="loading" /> Generando Reporte, espere por favor...</div>');  
   var controller = "../../bd/Sinfoned/ReportSinfoned_03.php";// URL
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#report03-tabla")
@@ -383,6 +385,7 @@ function Report03(fecha1,fecha2) {
         paging:true,
         bLengthChange: false,
         destroy: true,
+        processing: true,
         bFilter: true,
         bInfo: true,buttons:[ 
                    {
@@ -450,10 +453,10 @@ function Report03(fecha1,fecha2) {
           {"data" : "CANTIDAD"},    
           {"data" : "montodesembolsoS"},    
         ],
-        pagingType: "simple",
-        //Finaiza la carga del Ajax
-        initComplete :function(settings, json){
-          $("#modal-default-1").modal("hide");
-        } 
+        pagingType: "simple"
+        // //Finaiza la carga del Ajax
+        // initComplete :function(settings, json){
+        //   $("#modal-default-1").modal("hide");
+        // } 
       });
 } // ok
