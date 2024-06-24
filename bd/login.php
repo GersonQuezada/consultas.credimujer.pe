@@ -1,5 +1,4 @@
-<?php
-	session_start();
+<?php	
 	require_once 'coneccion.php';
 	$sql_vars = array();
 	$sql_vars['a1'] = $_POST['usuario'];
@@ -14,6 +13,7 @@
 	if($statement->execute()){
 	$row = $statement->fetch(PDO::FETCH_ASSOC);
 	  if($row > 1){
+		session_start();
 		print json_encode($row);
 		$name = $row['name'];
 		$user = $row['login'];

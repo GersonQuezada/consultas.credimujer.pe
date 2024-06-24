@@ -316,7 +316,11 @@ function Report_Boletas_noRecuperaciones(fecha1,fecha2,nrocre) {
   var name_xlsx = $('select[name="tiporeporte"] option:selected').text();  
   var table = $("#Reporte02_tabla")
       .DataTable({
-        dom:  "<'row'<''f><''B><'' i>>rtp",
+        dom:  '<"custom-length"l>' + // Cantidad de registros a la izquierda
+        '<"custom-buttons d-flex justify-content-center"B>' + // Botones en el medio
+        '<"custom-search"f>' + // Búsqueda a la derecha
+        't' + // Tabla
+        '<"bottom"ip>',
         paging:true,
         bLengthChange: false,
         destroy: true,
@@ -397,6 +401,18 @@ function Report_Boletas_noRecuperaciones(fecha1,fecha2,nrocre) {
                 return tot;
                 }
               },
+              {"data" : "DiferenciaInteres",
+                render: function ( data, type, row) {
+                let to = (row.DiferenciaInteres).split('.'); 
+                let tot = 0;
+                if(to[0] == ""){
+                tot = 0+row.DiferenciaInteres; 
+                }else{
+                tot = row.DiferenciaInteres;
+                }
+                return tot;
+                }
+              },
               {"data" : "IGV",
                 render: function ( data, type, row) {
                 let to = (row.IGV).split('.'); 
@@ -405,6 +421,18 @@ function Report_Boletas_noRecuperaciones(fecha1,fecha2,nrocre) {
                 tot = 0+row.IGV; 
                 }else{
                 tot = row.IGV;
+                }
+                return tot;
+                }
+              }, 
+              {"data" : "DiferenciaIGV",
+                render: function ( data, type, row) {
+                let to = (row.DiferenciaIGV).split('.'); 
+                let tot = 0;
+                if(to[0] == ""){
+                tot = 0+row.DiferenciaIGV; 
+                }else{
+                tot = row.DiferenciaIGV;
                 }
                 return tot;
                 }
@@ -489,6 +517,9 @@ function Report_Recuperaciones_noBoletas(fecha1,fecha2,nrocre) {
               {"data" : "ENTIDAD_BANCARIA"},
               {"data" : "PRODUCTO"},
               {"data" : "FECHA_DE_RECUP"},
+              {"data" : "FECHA_DE_EMISION_BV"},
+              {"data" : "SERIE_BV"},
+              {"data" : "NUMERO_BV"},
               {"data" : "NUMERO_CREDITO"},
               {"data" : "CICLO"},
               {"data" : "CODIGO_DE_BANCO"},
@@ -1537,37 +1568,17 @@ $("#ComboBox").change( function() {
           // $('#Reporte01_contenido').show();
           document.getElementById("Reporte01_contenido").style.display = "block";
           document.getElementById("Reporte02_contenido").style.display = "none";
-          document.getElementById("Reporte03_contenido").style.display = "none";
-          document.getElementById("Reporte04_contenido").style.display = "none";
-          document.getElementById("Reporte05_contenido").style.display = "none";
+          document.getElementById("Reporte03_contenido").style.display = "none"; 
         } else if ($(this).val() === "2") {
           $("#NroCredito").prop("disabled", false);
           document.getElementById("Reporte01_contenido").style.display = "none";
           document.getElementById("Reporte02_contenido").style.display = "block";
-          document.getElementById("Reporte03_contenido").style.display = "none";
-          document.getElementById("Reporte04_contenido").style.display = "none";
-          document.getElementById("Reporte05_contenido").style.display = "none";     
+          document.getElementById("Reporte03_contenido").style.display = "none";    
         }else if($(this).val() === "3"){
           $("#NroCredito").prop("disabled", false);
           document.getElementById("Reporte01_contenido").style.display = "none";
           document.getElementById("Reporte02_contenido").style.display = "none";
-          document.getElementById("Reporte03_contenido").style.display = "block";
-          document.getElementById("Reporte04_contenido").style.display = "none";
-          document.getElementById("Reporte05_contenido").style.display = "none";
-        }else if($(this).val() === "4"){
-          $("#NroCredito").prop("disabled", true);
-          document.getElementById("Reporte01_contenido").style.display = "none";
-          document.getElementById("Reporte02_contenido").style.display = "none";
-          document.getElementById("Reporte03_contenido").style.display = "none";
-          document.getElementById("Reporte04_contenido").style.display = "block";
-          document.getElementById("Reporte05_contenido").style.display = "none";
-        }else if($(this).val() === "5"){
-          $("#NroCredito").prop("disabled", true);
-          document.getElementById("Reporte01_contenido").style.display = "none";
-          document.getElementById("Reporte02_contenido").style.display = "none";
-          document.getElementById("Reporte03_contenido").style.display = "none";
-          document.getElementById("Reporte04_contenido").style.display = "none";
-          document.getElementById("Reporte05_contenido").style.display = "block";
+          document.getElementById("Reporte03_contenido").style.display = "block"; 
         }else{
           document.getElementById("Reporte01_contenido").style.display = "none";
           document.getElementById("Reporte02_contenido").style.display = "none";

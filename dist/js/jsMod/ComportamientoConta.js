@@ -143,9 +143,13 @@ function dataTxt (date) {
 function Listar(fecha,CODREGION){  
       var controller = "../../bd/Entidadfinanciera/GeneraArchivoBcp.php";// URL
         
-      var table = $("#example")
-      .DataTable({
-        dom: "<''row<''f><''i><B>>rtp",
+      var table = $("#example").DataTable({
+        dom: 
+        '<"custom-length"l>' + // Cantidad de registros a la izquierda
+        '<"custom-buttons d-flex justify-content-center"B>' + // Botones en el medio
+        '<"custom-search"f>' + // Búsqueda a la derecha
+        't' + // Tabla
+        '<"bottom"ip>',
         paging:true,
         bLengthChange: false,
         pageLength : 5,
@@ -189,18 +193,19 @@ function Listar(fecha,CODREGION){
                 {"data" : "Accion",
                   render: function ( data, type, row) {
                   var user = $("[name='usuario']").val();
-                  var botonEliminar = '<button type="button" id="BotonEliminarTabla" class="btn btn-danger col-sm" onclick = "eliminarSocia(\''+row.FECHAPROCESO+'___'+row.CODREGION+'___'+row.NRODNI+'\');" id = "BotonEliminar"><i class="fas fa-user-slash"></i></button>';
-                  var botonEditar = '<button type="button" id="BotonEditarTabla" class="btn btn-info col-sm"  data-toggle="modal" data-target="#modal-default" onclick = "AbrirModal(\''+row.NRODNI+'___'+row.CODREGION+'___'+row.FECHAPROCESO+'___'+row.APELLIDOSNOMBRES+'___'+row.MTOADICIONAL+'\');" id = "BotonEditar"><i class="fas fa-pencil-alt"></i></button>';
+                  var botonEliminar = '<button type="button" id="BotonEliminarTabla" class="btn btn-danger col-sm" onclick = "eliminarSocia(\''+row.ID+'\');" id = "BotonEliminar"><i class="fas fa-user-slash"></i></button>';
+                  var botonEditar = '<button type="button" id="BotonEditarTabla" class="btn btn-info col-sm"  data-toggle="modal" data-target="#modal-default" onclick = "AbrirModal(\''+row.NRODNI+'___'+row.CODREGION+'___'+row.FECHAPROCESO+'___'+row.APELLIDOSNOMBRES+'___'+row.MTOADICIONAL+'___'+row.ID+'\');" id = "BotonEditar"><i class="fas fa-pencil-alt"></i></button>';
                   var boton = "";
-                  if (user == "jacqueline.calero" || user == "gerson" || user == "cdelacruz" || user == "AUTORIZA.CONTABLE"  ) {
+                  if (user == "jacqueline.calero" || user == "cdelacruz" || user == "AUTORIZA.CONTABLE"  ) {
                     boton = botonEditar;
                   }else {
-                  boton = botonEliminar;
+                    boton = botonEliminar;
                   }
 
-                  return boton;     
+                  return botonEliminar+botonEditar;     
                   }
                 },
+                {"data": "ID", visible : false },
                 {"data" : "REGION", searchable: false },
                 {"data" : "CODASOCIACION" , searchable: false },
                 {"data" : "DESASOCIACION", searchable: false },
@@ -247,12 +252,8 @@ function Listar(fecha,CODREGION){
       });
 }
 
- function eliminarSocia(string){ 
-      let  datos = string.split('___');
-        var fecha = datos[0];
-        var CODREGION = datos[1];
-        var NroDNI = datos[2];
-       Swal.fire({
+function eliminarSocia(id){       
+      Swal.fire({
                   title: 'Esta seguro de Eliminar?',
                   text: "Si se elimina no tiene reversion!",
                   icon: 'warning',
@@ -265,8 +266,8 @@ function Listar(fecha,CODREGION){
                 $.ajax({url:"../../bd/Entidadfinanciera/EliminaSociaEnvioBcp.php",
                   type:"POST",
                   dataType: "json",
-                  data:{fechaProceso:fecha,CODREGION:CODREGION,NroDNI:NroDNI}, 
-                   success:function(data){               
+                  data:{id:id}, 
+                  success:function(data){               
                         if(data == "[]" || data == null){
                             Swal.fire('Hubo un error!','Revisar Ejecucion','info')  
                         }else{ 
@@ -282,11 +283,8 @@ function Listar(fecha,CODREGION){
 }
 
 function editarsocia(){
-  var fecha = document.getElementById('fecha1').value;
-  var CODREGION = document.getElementById('region').value;
-  var NroDNI = document.getElementById('nrodni').value;
-  var Mtodesembolso = document.getElementById('mtodesem').value;
- 
+  var id = document.getElementById('id').value;
+  var Mtodesembolso = document.getElementById('mtodesem').value; 
   Swal.fire({
   input: 'password',   
   showCancelButton: true, 
@@ -298,7 +296,7 @@ function editarsocia(){
         $.ajax({url:"../../bd/Entidadfinanciera/EditaSociaDJCG.php",
                 type:"POST",
                 dataType: "json",
-                data:{fechaProceso:fecha,CODREGION:CODREGION,NroDNI:NroDNI,Mtodesembolso:Mtodesembolso}, 
+                data:{ID : id,Mtodesembolso:Mtodesembolso}, 
                 success:function(data){               
                 if(data == "[2]" || data == null){
                       Swal.fire('Hubo un error!','Revisar Ejecucion','info')  
@@ -339,9 +337,11 @@ function AbrirModal(string){
   var fecha = datos[2];
   var NomSocia = datos[3];
   var monto = datos[4];
+  var id = datos[5];
   document.getElementById('nrodni').value = nrodni;     
   document.getElementById('nomsocia').value = NomSocia;
   document.getElementById('mtodesem').value = monto;
   document.getElementById('region').value = region;
   document.getElementById('fecha1').value = fecha;  
+  document.getElementById('id').value = id;
 }

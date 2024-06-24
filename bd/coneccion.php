@@ -2,32 +2,35 @@
 class Modelador{
     
     function conexion()
-    { 
-        $hostname = "34.139.80.38";
-         $dbname = "BD_CONSULTAS";
-         $username = "lima_assistemas";
-         $pw = '&RNj@YK4pG2e';
-        $dbh = new PDO ("sqlsrv:Server=$hostname;Database=$dbname","$username","$pw");
-        if($dbh){
-        #echo "Conectado";
-        }else{
-        echo "No conectado";
-        }        
+    {  
+        $direccion = dirname(__FILE__);
+        $jsondata = file_get_contents($direccion."/"."config");
+        // var_dump($jsondata);
+        $json = json_decode($jsondata, true);
+        foreach ($json as $key => $value) {
+            $server = $value['server'];
+            $user = $value['user'];
+            $password = $value['password'];
+            $database = $value['database'];
+        }
+        try {
+            $dbh = new PDO("sqlsrv:Server=".$server.";Database=".$database,$user,$password);                         
+        } catch (PDOException $exception) {
+            print $exception->getMessage();
+        }            
         return($dbh);
     }    
 
     function sql_Login($ls){
-         $sql = "SELECT SUBSTRING(a.name, 1, 21)+'.' as name,a.login,c.Nombre  from sec_users a inner join sec_users_groups b on a.login = b.login left join  sec_groups c on b.group_id = c.group_id where a.login = '{$ls['a1']}' and a.pswd = '{$ls['a2']}' ";
+        $sql = "SELECT SUBSTRING(a.name, 1, 21)+'.' as name,a.login,c.Nombre  from sec_users a inner join sec_users_groups b on a.login = b.login left join  sec_groups c on b.group_id = c.group_id where a.login = '{$ls['a1']}' and a.pswd = '{$ls['a2']}' ";
 
         return $sql;
-     }
+    }
     function Busca_socia($ls){
          $sql = "SELECT APELLIDOSNOMBRES from SFD_SOCIACOMPLETA where  APELLIDOSNOMBRES like '%{$ls['a1']}%'";
         return $sql;
     }
-
-
-     function _Cont_sql_str_proc_SP_RECUPERACIONES_VS_RVENTAS_V2($ls){
+    function _Cont_sql_str_proc_SP_RECUPERACIONES_VS_RVENTAS_V2($ls){
         $sql = "SET NOCOUNT ON;EXEC [BD_CREDIMUJER].[dbo].[SP_RECUPERACIONES_VS_RVENTAS_V2] @FECHAINICIO='{$ls['a1']}', @FECHAFIN='{$ls['a2']}'";
 
         return $sql;
@@ -88,13 +91,13 @@ class Modelador{
     }
 
     function _Cont_Elimina_Socia_envio_bcp($ls){
-    $sql = "delete from TENVIOBCP where fechaproceso = '{$ls['a1']}' and CODREGION = '{$ls['a2']}' and NRODNI = '{$ls['a3']}'   and MTOADICIONAL > 0.00 and CARGATABLA = 'N'";
+    $sql = "delete from TENVIOBCP where  id = '{$ls['a']}'";
 
         return $sql;
     }
 
     function _Cont_EditaSocia_bcp_dj($ls){
-    $sql = " UPDATE TENVIOBCP set MTOADICIONAL = '{$ls['a4']}'  where NRODNI = '{$ls['a3']}' and CODREGION = '{$ls['a2']}' and fechaproceso = '{$ls['a1']}' and CARGATABLA = 'N'";
+    $sql = " UPDATE TENVIOBCP set MTOADICIONAL = '{$ls['a2']}'  where id = '{$ls['a1']}' and CARGATABLA = 'N'";
 
         return $sql;
     }

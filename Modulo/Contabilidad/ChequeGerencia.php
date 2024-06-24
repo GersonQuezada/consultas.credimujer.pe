@@ -589,6 +589,9 @@ if($_SESSION["s_usuario"] === null){
                       <table id="example" class="table table-striped table-bordered table-hover"  cellspacing="0">
                       <thead class="text-white bg-info text-center align-middle">
                         <th>Action</th>
+                        <th 
+                        style = "display: none;" 
+                        >ID</th>
                         <th>REGION</th>
                         <th>Cod. Asociacion</th>
                         <th>Nom. Banco Comunal</th>

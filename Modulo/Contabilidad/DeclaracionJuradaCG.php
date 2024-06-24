@@ -17,6 +17,7 @@
             <input class="form-control" type="text" name="mtodesem" id="mtodesem" required="Campo nesesario" >
             <input id="fecha1" name="fecha1" type="hidden" >
             <input id="region" name="region" type="hidden" >
+            <input id="id" name="region" type="hidden" >
             <button onclick="editarsocia();" style="margin-top: 25px" class = "btn btn-primary" class="close" data-dismiss="modal" ><i class="fas fa-save"></i></button>
             </div>  
           </div>

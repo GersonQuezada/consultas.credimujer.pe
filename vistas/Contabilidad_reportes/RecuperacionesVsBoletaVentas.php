@@ -603,7 +603,9 @@ if($_SESSION["s_usuario"] === null){
                           <th>NOMBRE_CLIENTE_PRESIDENTE</th>
                           <th>CAPITAL</th>
                           <th>INTERES</th>
+                          <th>DIFERENCIA INTERES</th>
                           <th>IGV</th>
+                          <th>DIFERENCIA IGV</th>
                           <th>MONTO_TOTAL</th>
                           <th>TIPO_PAGO</th>
                           <th>FECHA_VENCIMIENTO_CRONOGRAMA</th>                          
@@ -624,6 +626,9 @@ if($_SESSION["s_usuario"] === null){
                           <th>ENTIDAD_BANCARIA</th>
                           <th>PRODUCTO</th>
                           <th>FECHA_DE_RECUP</th>
+                          <th>FECHA_DE_EMISION_BV</th>
+                          <th>SERIE_BV</th>
+                          <th>NUMERO_BV</th>
                           <th>NUMERO_CREDITO</th>
                           <th>CICLO</th>
                           <th>CODIGO_DE_BANCO</th>
