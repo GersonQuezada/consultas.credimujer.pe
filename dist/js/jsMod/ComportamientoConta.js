@@ -196,7 +196,7 @@ function Listar(fecha,CODREGION){
                   var botonEliminar = '<button type="button" id="BotonEliminarTabla" class="btn btn-danger col-sm" onclick = "eliminarSocia(\''+row.ID+'\');" id = "BotonEliminar"><i class="fas fa-user-slash"></i></button>';
                   var botonEditar = '<button type="button" id="BotonEditarTabla" class="btn btn-info col-sm"  data-toggle="modal" data-target="#modal-default" onclick = "AbrirModal(\''+row.NRODNI+'___'+row.CODREGION+'___'+row.FECHAPROCESO+'___'+row.APELLIDOSNOMBRES+'___'+row.MTOADICIONAL+'___'+row.ID+'\');" id = "BotonEditar"><i class="fas fa-pencil-alt"></i></button>';
                   var boton = "";
-                  if (user == "jacqueline.calero" || user == "cdelacruz" || user == "AUTORIZA.CONTABLE"  ) {
+                  if (user == "jacqueline.calero" || user == "gerson" || user == "cdelacruz" || user == "AUTORIZA.CONTABLE"  ) {
                     boton = botonEditar;
                   }else {
                     boton = botonEliminar;
