@@ -202,7 +202,7 @@ function Listar(fecha,CODREGION){
                     boton = botonEliminar;
                   }
 
-                  return botonEliminar+botonEditar;     
+                  return boton;     
                   }
                 },
                 {"data": "ID", visible : false },
